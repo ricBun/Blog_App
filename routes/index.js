@@ -26,7 +26,7 @@ router.get("/blogs/new", function(req,res){
 // CREATE ROUTE
 router.post("/blogs", function(req,res){
    // create blog
-   Blog.count({}, function(err, count){
+   Blog.countDocuments({}, function(err, count){
     if (count >= 5) {
       res.send("Passed blog threshold of 5! Will not create!");
     }
