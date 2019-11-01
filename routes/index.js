@@ -26,15 +26,21 @@ router.get("/blogs/new", function(req,res){
 // CREATE ROUTE
 router.post("/blogs", function(req,res){
    // create blog
-   req.body.blog.body = req.sanitize(req.body.blog.body);
-   Blog.create(req.body.blog, function(err,newBlog) {
-       if(err){
-           res.render("new");
-       } else {
-           res.redirect("/blogs");
-       }
-   })
-   // then, redirect to the index
+   Blog.count({}, function(err, count){
+    if (count >= 5) {
+      res.send("Passed blog threshold of 5! Will not create!");
+    }
+    else {
+      req.body.blog.body = req.sanitize(req.body.blog.body);
+      Blog.create(req.body.blog, function(err,newBlog) {
+          if(err){
+              res.render("new");
+          } else {
+              res.redirect("/blogs");
+          }
+      })
+    }
+  });
 });
 
 // SHOW ROUTE
