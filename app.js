@@ -11,7 +11,6 @@ let bodyParser         = require("body-parser"),
     passport           = require("passport"),
     LocalStrategy      = require("passport-local"),
     Blog               = require("./models/blog"),
-    User               = require("./models/user"),
 
 // requiring routes
     blogAppRoute       = require("./routes/index");
