@@ -9,7 +9,8 @@
         </div>
         <div class="field">
             <label>Image</label>
-            <input type="text" name="blog[image]" value=<%= blog.image%>>
+            <input type="text" name="blog[image]" pattern="^https:\/\/images\.unsplash\.com\/.*" title="Only images from images.unsplash.com allowed. See link below for instructions." placeholder="https://images.unsplash.com/..." required>
+            <small>Click <a href="https://youtu.be/Bn3weNRQRDE">here</a> for tutorial on how to copy unsplash urls.</small>
         </div>
         <div class="field">
             <label>Blog Content</label>
